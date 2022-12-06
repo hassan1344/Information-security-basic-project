@@ -1,0 +1,40 @@
+doctype html
+head
+  p Currently logged in user : #{emailId= emailId}
+  
+  meta(charset='UTF-8')
+  link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700')
+  link(rel='stylesheet' href='./style.css')
+// partial:index.partial.html
+.login-form
+  form(action='http://localhost:3000/api/user/previewall' method='GET')
+    input(type='hidden' name='emailId' value=emailId)
+    input(type='hidden' name='id' value=id)
+  
+    button#continue Preview all Users (ADMIN API)
+
+br
+.login-form1
+  form(action='http://localhost:3000/api/user/loggedin' method='GET')
+    input(type='hidden' name='emailId' value=emailId)
+    input(type='hidden' name='id' value=id)
+  
+    button#continue Preview Logged in User Data (USER API)
+
+
+br
+.login-form2
+  form(action='http://localhost:3000/api/user/respassany' method='GET')
+    input(type='hidden' name='emailId' value=emailId)
+    input(type='hidden' name='id' value=id)
+  
+    button#continue Reset any user's password (ADMIN API)
+
+br
+.login-form3
+  form(action='http://localhost:3000/api/user/resetloggedin' method='GET')
+    input(type='hidden' name='emailId' value=emailId)
+    input(type='hidden' name='id' value=id)
+  
+    button#continue Reset Logged in user's password (USER API)
+

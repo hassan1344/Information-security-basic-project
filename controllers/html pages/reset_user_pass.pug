@@ -1,0 +1,42 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700')
+  link(rel='stylesheet' href='./style.css')
+script.
+  function check_pass() {
+  if (document.getElementById('password').value ==
+  document.getElementById('confirm_password').value) {
+  document.getElementById('submit').disabled = false;
+  } else {
+  document.getElementById('submit').disabled = true;
+  }
+  }
+  function myFunction() {
+  var x = document.getElementById("password");
+  var y = document.getElementById("confirm_password");
+  if (x.type === "password" || y.type === "confirm_password") {
+  x.type = "text";
+  y.type = "text"
+  } else {
+  x.type = "password";
+  y.type = "password"
+  }
+  }
+// partial:index.partial.html
+.login-form
+  form(action='http://localhost:3000/api/user/resetpassbyuser' method='POST')
+    .content
+      h1 Enter New Password
+      .p Your ID : #{id= id}
+       .p Your Email : #{email= email}
+        .input-field
+        input#id(type='id' placeholder='id' autocomplete='id' value=id name='id' readonly)
+      .input-field
+        input#password(type='password' placeholder='New Password' autocomplete='new-password' onchange='check_pass()' name='password')
+      .input-field
+        input#confirm_password(type='password' placeholder='Re-Enter Password' autocomplete='new-password' onchange='check_pass()')
+      .input-field
+        input(type='checkbox' onclick='myFunction()')
+        | Show Password
+        input#submit(type='submit' name='submit' value='Submit' disabled='')

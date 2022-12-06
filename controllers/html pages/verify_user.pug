@@ -1,0 +1,19 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700')
+  link(rel='stylesheet' href='./style.css')
+// partial:index.partial.html
+.login-form
+  form(action='http://localhost:3000/api/user/verifyuser' method='POST')
+    .content
+      h1 Enter code to verify yourself
+      .p Your ID : #{id= id}
+       .p Your Email : #{emailId= emailId}
+        .input-field
+        input#id(type='id' placeholder='id' autocomplete='id' value=id name='id' readonly)
+      .input-field
+        input#code(type='code' placeholder='Enter code sent to mail' autocomplete='code' name='code')
+
+      .input-field
+        input#submit(type='submit' name='submit' value='Submit')
