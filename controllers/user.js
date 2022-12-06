@@ -78,18 +78,18 @@ const login = async (req, res, next) => {
 
 `
 
-var transporter = nodemailer.createTransport({
-  host : 'mail.fixlancer.com',
-  port : 465,
+var transporter = nodemailer.createTransport({  //u can use your own mailing server credentials
+  host : '',
+  port : '', //will be an integer value
   auth : {
-    user : 'fejora@fixlancer.com',
-    pass : 'Fejora12345@'
+    user : '',
+    pass : ''
   }
 });
 
 let info = await transporter.sendMail({
-  from: 'fejora@fixlancer.com', 
-  to: 'deagleonly20@gmail.com', 
+  from: '', 
+  to: '', 
   subject: "User verification", 
   html : html,
 });
@@ -236,18 +236,18 @@ const html =
 
 `
 
-var transporter = nodemailer.createTransport({
-  host : 'mail.fixlancer.com',
-  port : 465,
+var transporter = nodemailer.createTransport({ ////u can use your own mailing server credentials
+  host : '',
+  port : '', //will be an integer value
   auth : {
-    user : 'fejora@fixlancer.com',
-    pass : 'Fejora12345@'
+    user : '',
+    pass : ''
   }
 });
 
 let info = await transporter.sendMail({
-  from: 'fejora@fixlancer.com', 
-  to: 'deagleonly20@gmail.com' ,
+  from: '', 
+  to: '' ,
   subject: "Your new password", 
   html : html,
   attachments: [{
